@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"regexp"
 	"strconv"
@@ -14,11 +13,13 @@ import (
 func main() {
 
 	part1()
-	numberOfValidPassports := 0
+	part2()
 
 }
 
 func part2() {
+	numberOfValidPassports := 0
+
 	requiredElements := set.New(set.NonThreadSafe)
 	requiredElements.Add("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
 
@@ -43,7 +44,6 @@ func part2() {
 			if len(s) > 1 {
 				kv := strings.Split(s, ":")
 				if validateValue(kv[0], kv[1]) {
-					fmt.Println(kv[0], kv[1], "VALID")
 					elementsInThisPassport.Add(kv[0])
 				}
 			}
