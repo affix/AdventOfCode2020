@@ -34,10 +34,8 @@ func part1(bagContainsInfo map[string]Bag) int {
 	return len(recursiveSearchBagsEventuallyContaining(bagToBagsContaining, "shiny gold"))
 }
 
-func part2(bagContainsInfo map[string]Bag) (numBags int) {
-	numBags = recursiveSearchHowManyBagsContained(bagContainsInfo, "shiny gold")
-
-	return
+func part2(bagContainsInfo map[string]Bag) int {
+	return recursiveSearchHowManyBagsContained(bagContainsInfo, "shiny gold")
 }
 
 func recursiveSearchHowManyBagsContained(bagContainsInfo map[string]Bag, color string) (count int) {
