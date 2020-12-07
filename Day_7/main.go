@@ -23,7 +23,7 @@ func main() {
 	fmt.Println("Part 2:", part2(rules))
 }
 
-func part1(bagContainsInfo map[string]Bag) (numColorsContainingGold int) {
+func part1(bagContainsInfo map[string]Bag) int {
 	bagToBagsContaining := make(map[string][]string)
 	for key, value := range bagContainsInfo {
 		for bagContainedBy := range value.Contains {
@@ -31,9 +31,7 @@ func part1(bagContainsInfo map[string]Bag) (numColorsContainingGold int) {
 		}
 	}
 
-	numColorsContainingGold = len(recursiveSearchBagsEventuallyContaining(bagToBagsContaining, "shiny gold"))
-
-	return
+	return len(recursiveSearchBagsEventuallyContaining(bagToBagsContaining, "shiny gold"))
 }
 
 func part2(bagContainsInfo map[string]Bag) (numBags int) {
